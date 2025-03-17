@@ -11,21 +11,30 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key.Companion.R
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import mltpformsharedui.composeapp.generated.resources.Res
 import mltpformsharedui.composeapp.generated.resources.compose_multiplatform
+import mltpformsharedui.composeapp.generated.resources.logo
 
 @Composable
 @Preview
 fun App(batteryLevelManager: BatteryLevelManager) {
-   MaterialTheme {
-      Box(
-         modifier = Modifier.fillMaxWidth(),
-         contentAlignment = Alignment.Center
-      ) {
-         Text("The Current Battery Level is ${batteryLevelManager.getBatteryLevel()}")
-      }
-   }
+    MaterialTheme {
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column {
+                Image(
+                    painterResource(Res.drawable.logo),
+                    contentDescription = null
+                )
+                Text("The Current Battery Level is ${batteryLevelManager.getBatteryLevel()}")
+
+            }
+        }
+    }
 }
